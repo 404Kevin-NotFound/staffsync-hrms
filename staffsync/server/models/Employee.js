@@ -1,0 +1,9 @@
+const mongoose = require('mongoose');
+const schema = new mongoose.Schema({
+  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+  name: { type: String, required: true }, email: { type: String, required: true, lowercase: true },
+  department: { type: String, required: true }, position: { type: String, required: true },
+  salary: { type: Number, required: true, min: 0 }, joinDate: { type: Date, required: true },
+  phone: String, address: String
+}, { timestamps: true });
+module.exports = mongoose.model('Employee', schema);
